@@ -1,12 +1,25 @@
-import  express  from "express";
-import { getAllCats, getCatById, createCat } from "../controllers/catController.js";
+import express from "express";
+import {
+  createCat,
+  deleteCatById,
+  getAllCats,
+  getCatById,
+  updateCat,
+  deleteAllCats
+} from "../controllers/catController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/get', getAllCats);
+router.post("/create", createCat);
 
-router.get('/get/:id', getCatById);
+router.get("/get", getAllCats);
 
-router.post('/post', createCat);
+router.get("/get/:id", getCatById);
+
+router.delete("/delete/:id", deleteCatById);
+
+router.put("/update/:id", updateCat);
+
+router.delete("/delete", deleteAllCats);
 
 export default router;
